@@ -1,0 +1,47 @@
+@use "../variables" as var;
+
+.worryfree-footer {
+    margin-top: -60px;
+    background-color: #3A3A3A;   
+    .wrapper {
+        width: 81%;
+        padding: 66px 0 80px;
+        .worryfree-footer-text,a,span {
+            color: #FFFFFF;
+            font-family: var.$family-300;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        .worryfree-footer-links {
+            margin-top: 49px;
+            display: flex;
+            justify-content: center;
+            column-gap: 6px;
+            li {
+
+                a {
+                    display: inline;
+                }
+
+                &::after {
+                    content: "";
+                    width: 1px;
+                    height: 10px;
+                    margin-left: 4px;
+                    display: inline-block;
+                    background-color: #FFFFFF;
+                }
+                &:last-child::after {
+                    display: none;
+                }
+            }
+
+            @media only screen and (max-width: var.$md) {
+                flex-wrap: wrap;
+            }
+        }
+    } 
+}

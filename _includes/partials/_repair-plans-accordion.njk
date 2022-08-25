@@ -1,0 +1,25 @@
+{% if plans %}
+<section class="repair-plans-accordion">
+  <div class="wrapper">
+    <h3>View Our Home Repair Plans</h3>
+    <ul>
+    {% for plan in plans %}
+      <li>
+        <div class="accordion-trigger">
+          <p>
+            {% if plan.image %}
+            <img src="/en-us/assets/images/products/{{ plan.image }}" alt="{{ plan.title }}" />
+            {% endif %}
+            {{ plan.title }}
+          </p>
+        </div>
+        <div class="hide-info">
+          <p>{{ plan.description }}</p>
+          <a href="{{ plan.link }}">View Plans</a>
+        </div>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}

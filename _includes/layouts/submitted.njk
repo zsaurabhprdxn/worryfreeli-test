@@ -1,0 +1,30 @@
+---
+layout: energy/services/index.njk  
+---
+
+<div class="services-submitted-content">
+  <figure>
+    <img src="/en-us/assets/images/HS_icon_with_tick.svg" class="hs-submitted-icon" alt="HS Submitted Icon"/>
+  </figure>
+  <div class="submitted-msg-day text-center">
+    <p>Request received!</p>
+    <p>We will reply as quickly as we can.</p>
+  </div>
+  <div class="submitted-msg-night">
+    <div class="msg-title text-center">
+      <p>Request received!</p>
+      <p>Our offices are closed, but you will be our priority as soon as we reopen.</p>
+    </div>
+    <div class="msg-subtitle text-center">
+      <span class="d-inline-block d-md-block">Mon - Fri 9 am to 9 pm ET</span>
+      <span class="d-inline-block">Sat 9 am - 4:30 pm ET</span>
+    </div>
+  </div>
+  <div class="btn-submitted-group active">
+    <a href='tel:1-855-336-2465' title='1-855-336-2465' class="btn-call">{{ contactTextDirect }}</a>
+  </div>
+  <div class="energy-submitted-settings">
+    <input type="hidden" value="{{ contactTextRM }}" id="energy-rm-contact-text">
+    <input type="hidden" value="{{ contactTextDirect }}" id="energy-direct-contact-text">
+  </div>
+</div>

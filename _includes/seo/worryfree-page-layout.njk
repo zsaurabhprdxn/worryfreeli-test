@@ -1,0 +1,32 @@
+---
+layout: layouts/base-layout.njk
+headerStyle: 'worryfree'
+footerStyle: 'worryfree'
+seoProductStyle: 'pseg-worryfree-page'
+---
+
+<div class="service-page">
+  {{ content | safe }}
+
+  {% include "partials/_sticky-services-worryfree.njk" %}
+  {% if areaOfServices %}
+  <div class="hvac-cities">
+    <div class="wrapper">
+      <h2>Areas of Service</h2>
+      <ul>
+        <li>Brentwood</li>
+        <li>Elmont</li>
+        <li>Freeport</li>
+        <li>Hempstead</li>
+        <li>Hicksville</li>
+        <li>Levittown</li>
+        <li>Valley Stream</li>
+        <li>West Babylon</li>
+      </ul>
+    </div>
+  </div>
+{% endif %}
+</div>
+<div class="service-page-settings">
+  <input type="hidden" value="{% if phoneNumber %}{{ phoneNumber }}{% endif %}" id="phone-value">
+</div>

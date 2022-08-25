@@ -1,0 +1,135 @@
+<header id="header-home" class="worryfree-header">
+    <div class="desktop-header">
+        <div class="wrapper">
+            <a class="logo logo-icon" href="#FIXME" title="Pseg Homeserve">
+                <img src="/en-us/assets/images/seo-page/services/worryfree.jpg" alt="pseg worryfree">
+                <div class="navigation">
+                    <ul class="covid-link">
+                        <li>
+                            <a href="/en-us/services/coronavirus-update" title="COVID-19" target="_blank">COVID-19</a>
+                        </li>
+                        <li>
+                            <a href="tel:{{ phoneNumber }}" title="{{ phoneNumber }}" target="_self">{{ phoneNumber }}</a>
+                        </li>
+                    </ul>
+                    <ul class="nav-bar">
+                        <li>
+                            <a href="/en-us/services/hvac/maintenance/" title="Maintenance" target="_self">Maintenance</a>
+                        </li>
+                        <li>
+                            <a href="/en-us/services/hvac/repair/" title="Repair" target="_self">Repair</a>
+                        </li>
+                        <li>
+                            <a href="/en-us/services/hvac/installation/" title="Installation" target="_self">Installation</a>
+                        </li>
+                        <li>
+                            <a href="/en-us/services/water-heater/" title="Water Heater Services" target="_self">Water Heater Services</a>
+                        </li>
+                        <li>
+                            <a href="/en-us/services/hvac/repair/" title="Repair Plans" target="_self">Repair Plans</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-header">
+            <div class="wrapper">
+                <div class="mobile-logo">
+                    <button class="worryfree-hamburger-menu hamburger-menu" role="button">☰</button>
+                    <a href="/en-us" title="Pseg Homeserve">
+                        <img src="/en-us/assets/images/seo-page/services/worryfree-mobile.jpg" alt="pseg worryfree"></a>
+                </div>
+                <div class="header-menu-items">
+                    <div class="menu-item menu-item-zip">
+                        <div class="component header-popup">
+                            <div class="wrapper-in">
+                                <button class="link edit header-popup-button" type="text" aria-label="open-button" for="trigger-zip-form">
+                                    <span class="text">Enter ZIP</span>
+                                </button>
+                            </div>
+                            <div class="wrapper-out">
+                                <a class="link header-popup-button" type="text" aria-label="open-button" for="trigger-zip-form">
+                                    {% include "svgs/pin-icon.svg" %}
+                                    <span class="text">Enter ZIP</span>
+                                    <span class="mobile-device-zip">{% include "svgs/location.svg" %}</span>
+                                </a>
+                            </div>
+                            <div class="header-zip-popup">
+                                <button class="close-popup header-popup-button" type="text" aria-label="close-button" for="trigger-zip-form">
+                                    {% include "svgs/close-icon.svg" %}
+                                </button>
+                                <div class="wrapper-in">
+                                    <p class="heading">Viewing plans for:</p>
+                                    <p class="zip-code">
+                                        <span class="city-details"></span>
+                                        <span class="addr-details"></span>
+                                    </p>
+                                    <div class="form">
+                                        <fieldset>
+                                            <div class="form-row">
+                                                <label for="zipcode">
+                                                    {% include "svgs/warning-icon.svg" %}
+                                                    Changing your ZIP Code may change the contents of your shopping cart
+                                                </label>
+                                            </div>
+                                            <div class="form-row zip-bar">
+                                                <input type="text" inputmode="decimal" pattern="[0-9]*" maxlength="5" name="zipcode" class="zip-input js-partner-zip zip-can zip-value" id="wrapin-zipcode" placeholder="Enter Your Zip" data-rule-required="true" data-msg-required="Please input a 5 digit ZIP Code" data-rule-pattern="[0-9]{5}" data-msg-pattern="ZIP Code invalid please input a valid, 5 digit ZIP Code">
+                                                <label class='zip-error top-error'>Please input a 5 digit ZIP Code</label>
+                                                <button type="submit" class="button zip-button" data-partners-api="/sc/api/PartnerSelection/GetPartners" {% if headerSubmitColor %} style="background-color: {{ headerSubmitColor }}; border: 2px solid {{ headerSubmitColor }};" {% endif %}>
+                                                    <span class="wrap">
+                                                        <span class="text">Change ZIP</span>
+                                                        {% include "svgs/arrow-right-icon.svg" %}
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="wrapper-out">
+                                    <p class="heading">ZIP Code</p>
+                                    <div class="form">
+                                        <fieldset>
+                                            <div class="label">
+                                                <label for="zipcode">Enter your ZIP Code to see plans available in your area</label>
+                                            </div>
+                                            <div class="field zip-bar">
+                                                <input type="text" inputmode="decimal" pattern="[0-9]*" maxlength="5" name="zipcode" class="zip-input js-partner-zip zip-can zip-value" id="wrapout-zipcode" placeholder="Enter Your ZIP Code" data-rule-required="true" data-msg-required="Please input a 5 digit ZIP Code" data-rule-pattern="[0-9]{5}" data-msg-pattern="ZIP Code invalid please input a valid, 5 digit ZIP Code">
+                                                <label class='zip-error top-error'>Please input a 5 digit ZIP Code</label>
+                                                <button type="submit" class="button button-blue zip-button" data-partners-api="/sc/api/PartnerSelection/GetPartners" {% if headerSubmitColor %} style="background-color: {{ headerSubmitColor }}; border: 2px solid {{ headerSubmitColor }};" {% endif %}>
+                                                    <span class="text">View Plans</span>
+                                                    {% include "svgs/arrow-right-icon.svg" %}
+                                                </button>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item mobile-device-phone">
+                                <div class="component">
+                                    <a class="link header-phone-popup" href="tel:{% if phoneNumber %}{{ phoneNumber }}{% else %}1-855-336-2465{% endif %}">
+                                        {% include "svgs/Phone.svg" %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="worryfree-mobile-popup">
+                    <div class="worryfree-button">
+                        <img class="worryfree-close-button" src="/en-us/assets/images/seo-page/services/worryfree-close-icon.png" alt="close button"></div>
+                    <ul class="worryfree-mobile-menus">
+                        <li>
+                            <a href="/en-us" title="PSEG Worryfree">
+                                <img src="/en-us/assets/images/seo-page/services/worryfree.jpg" alt="pseg worryfree"></a>
+                        </li>
+                        {% for menuItem in header.worryFreeMobileItems %}
+                            <li>
+                                <a href="{{ menuItem.url }}" title="{{ menuItem.title }}">{{ menuItem.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="modal-box"></div>
+            </div>
+        </div>
+    </header>

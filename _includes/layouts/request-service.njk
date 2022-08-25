@@ -1,0 +1,88 @@
+---
+layout: layouts/base-layout.njk
+headerStyle: 'landing'
+seoProductStyle: 'seo-claims-faq-page'
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/index.css">
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/request-service/request-service.css">
+    <title>
+      {% if titleTag %}{{ titleTag }} | {% elif headline %}{{ headline }} | {% endif %}HomeServe
+    </title>
+    <base href="/en-us/customers/find-serial-number-device-type/">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TDG77V5');</script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDG77V5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <main class="position-relative request-service">
+      <div class="wrapper error">
+        <div class="main-content error">
+          <div>
+            <h1 id="title">Request Service</h1>
+            <p>See how easy it is. HomeServe customers will enjoy the convenience of requesting service online. It’s a quick way to get your service into action—file a claim without being on hold or speaking to a Repair Specialist. Plus, it’s mobile friendly. Try it out.</p>
+          </div>
+          <div class="svg">
+            <img class="svg-badge" src="/en-us/assets/images/request-service/request-service-img.svg" alt="Request Service Process"/>
+            <div class="captions">
+              <span>Request Repair</span>
+              <span>Schedule Technician</span>
+              <span>Diagnose & Authorize</span>
+              <span>Complete Repair</span>
+            </div>
+          </div>
+          <div class="request-btn">
+            <a href="/sc/login"><button class="button">Request Service</button></a>
+          </div>
+          <div class="btn-scroll-down">
+            <img class="svg-arrow-down" src="/en-us/assets/images/request-service/angle-down-solid.svg" alt="Scroll down arrow"/>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="faq-page">
+      {# {% include "en-us/assets/images/request-service/request-service-bg.svg" %} #}
+      <div class="faq-title rs-background">
+        <h1>Got some FAQs? We've got answers.</h1>
+      </div>
+      <div class="faq-content">
+        {{ content | safe }}
+        <div class="faq-btn">
+          <a href="/en-us/customers/request-service/faq/"><button class="button"><b>See All FAQs</b></button></a>
+        </div>
+      </div>
+    </div>
+    <div class="review-sections">
+      <h1>Providing satisfaction and savings...</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-12">
+            <img class="svg-badge" src="/en-us/assets/images/request-service/badges/seconds.svg" alt="34 Seconds Badge" />
+            <p>HomeServe completes a job every 34 seconds.</p>
+          </div>
+          <div class="col-lg-4 col-12">
+           <img class="svg-badge" src="/en-us/assets/images/request-service/badges/ratings.svg" alt="4.8/5 Star Ratings Badge" />
+            <p>HomeServe customers give us 4.8 out of 5 stars in post-claim satisfaction.</p>
+          </div>
+          <div class="col-lg-4 col-12">
+            <img class="svg-badge" src="/en-us/assets/images/request-service/badges/billions.svg" alt="$2 Billion Badge" />
+            <p>HomeServe has saved customers over $2 billion in home repairs.</p>
+          </div>
+        </div>
+      </div>
+      <br>
+        <p>*Customers surveyed after receiving service between 7/1/2021 - 12/31/2021</p>
+      <br>
+    </div>
+  </body>
+</html>

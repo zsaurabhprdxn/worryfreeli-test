@@ -1,0 +1,137 @@
+---
+pageTitle: "PSEG WorryFree Long Island"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+      {% if titleTag %}{{ titleTag }} | {% elif headline %}{{ headline }} | {% endif %}{{ pageTitle }}
+    </title>
+    <meta name="description" content="{% if metaDescriptions %}{{ metaDescriptions }}{% else %}PSEG WorryFree Long Island Island is your one-stop shop for all heating & cooling related services, including emergency repair or replacement. Visit us here for a quote Today!{% endif %}"/>
+    {% if isHome == true %}
+    {% elif isLandingPage == true %}
+    {% else %}
+    <meta httpequiv="Content-Type" content="text/html"/>
+    <meta name="title" content="{% if headline %}{{ headline }}{% endif %}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="" class="baseUrl"/>
+    <meta property="og:title" content="{% if ogTitle %}{{ ogTitle }}{% elif headline %}{{ headline }}{% endif %}"/>
+    <meta property="og:description"
+  content="{% if ogDescription %}{{ ogDescription }}{% elif metaDescriptions %}{{ metaDescriptions }}{% endif %}"/>
+    <meta property="og:image" content="{{basePath}}{% if ogImage %}{{ogImage}}{% else %}{{heroImage}}{% endif %}"
+  class="imagePath"/>
+    <meta property="og:image:width" content="{% if heroImageWidth %}{{heroImageWidth}}{% else %}1080{% endif %}"/>
+    <meta property="og:image:height" content="{% if heroImageHeight %}{{heroImageHeight}}{% else %}800{% endif %}"/>
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:url" content="" class="baseUrl"/>
+    <meta property="twitter:title"
+    content="{% if twitterTitle %}{{ twitterTitle }}{% elif headline %}{{ headline }}{% endif %}"/>
+    <meta property="twitter:description"
+    content="{% if ogDescription %}{{ ogDescription }}{% elif metaDescriptions %}{{ metaDescriptions }}{% endif %}"/>
+    <meta property="twitter:image"
+    content="{{basePath}}{% if twitterImage %}{{twitterImage}}{% else %}{{heroImage}}{% endif %}" class="imagePath"/>
+    {% endif %}
+    {% if noIndex %}
+      <meta name="robots" content="noindex, nofollow">
+    {% endif %}
+    
+    <link href="/en-us/css/compiled-sass/bootstrap.css">
+    <link href="/en-us/css/compiled-sass/index.css" as="style">
+    {% if headerStyle == 'landing' %}
+    <link href="/en-us/css/compiled-sass/header/header-home.css">
+     {% elseif headerStyle == 'worryfree' %}
+    <link href="/en-us/css/compiled-sass/header/worryfree-header-home.css">
+    {% endif %}
+    {% if not pageStyles %}
+    <link href="/en-us/css/compiled-sass/common.css" as="style">
+    {% endif %}
+    {% if energyPageStyle == 'energy-services' %}
+    <link href="/en-us/css/compiled-sass/energy/services/index.css">
+    {% endif %}
+    {% if footerStyle == 'worryfree' %}
+    <link href="/en-us/css/compiled-sass/footer/worryfree-footer.css">
+    {% endif %}
+    <link href="/en-us/assets/vendor.js" as="script">
+    <link href="/en-us/assets/main.js" as="script">
+    <link href="/en-us/assets/vendor/font-awesome/css/all.min.css" as="style">
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" as="style"/>
+    <link  href="/en-us/css/compiled-sass/index.css">
+    {% if not pageStyles %}
+    <link  href="/en-us/css/compiled-sass/common.css">
+    {% endif %}
+
+    <link href="/en-us/assets/vendor/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
+    <link href="/en-us/assets/vendor/font-awesome/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <link rel="shortcut icon" href="/en-us/assets/images/favicon.png" type="image/x-icon">
+  </head>
+
+  <body>
+    <!-- Shortcode drilling for Sprite Plugin -->
+    {# <div class="svg-sprite-container">{% svgsprite %}</div> #}
+
+    {% set announcement = announcement %}
+
+      <div class="container-fluid" id="myContent">
+        {% if headerStyle == 'worryfree' %}
+          {% if noHeader %}
+          {% else %}
+            {% include "partials/_header-worryfree.njk" %}
+          {% endif %}
+          <main {% if noFooter %} class="no-margin" {% endif %}>
+            <div>{{ content | safe }}</div>
+          </main>
+        {% elseif headerStyle == 'landing' %}
+          {% if noHeader %}
+          {% else %}
+            {% include "partials/_header-home.njk" %}
+          {% endif %}
+          <main {% if noFooter %} class="no-margin" {% endif %}>
+            <div>{{ content | safe }}</div>
+          </main>
+        {% else %}        
+          <main>
+            <div>{{ content | safe }}</div>
+          </main>
+        {% endif %}
+        {% if noFooter %}
+        {% elseif footerStyle == 'worryfree' %}
+          {% include "partials/_footer-worryfree.njk" %}
+        {% elseif footerStyle == 'energy-services' %}
+          {% include "partials/_footer-energy-services.njk" %}
+        {% endif %}
+      </div>
+
+      {% if backToTop %}
+        {% include "partials/_back-to-top.njk" %}
+      {% endif %}
+
+
+      <!-- Added bootstrap cdn here-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+      <script src="/en-us/assets/" type="text/javascript" defer></script>
+      <script src="/en-us/assets/main.js" type="text/javascript" defer></script>
+     
+      <script id="slick_slider" type="text/javascript" defer></script>
+
+      <div id="errorModal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">x</span>
+          <div class='error-header'></div>
+          <p class='error-content'></p>
+        </div>
+      </div>
+
+    </body>
+
+  </html>

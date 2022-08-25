@@ -1,0 +1,40 @@
+---
+layout: energy/services/index.njk  
+---
+
+<div class="services-results-content">
+    <form action="/" class="services-results-form">
+        <fieldset>
+            <legend>What service do you need?</legend>
+            <div class="form-input-group">
+                <img src="/en-us/assets/images/tick-shape.svg" class="radio-tick option-1" alt="Tick Icon"/>
+                <input type="radio" value="Heating or Cooling Installations" name="services-options" id="option-1">
+                <label for="option-1">Heating, Cooling, or Water Heater Installations</label>
+            </div>
+            <div class="form-input-group">
+                <img src="/en-us/assets/images/tick-shape.svg" class="radio-tick option-2" alt="Tick Icon"/>            
+                <input type="radio" value="Heating or Cooling Issues" name="services-options" id="option-2">
+                <label for="option-2">Heating, Cooling, or Water Heater Issues</label>
+            </div>
+            <div class="form-input-group">
+                <img src="/en-us/assets/images/tick-shape.svg" class="radio-tick option-3" alt="Tick Icon"/>
+                <input type="radio" value="Inquire about maintenance and tune-up service" name="services-options" id="option-3">
+                <label for="option-3">Inquire about maintenance & tune-up service</label>
+            </div>
+        </fieldset>
+        <div class="form-button-group">
+            <input type="submit" value="Continue" class="btn-results-continue">
+            <div id="email-validation" class="invalid-feedback text-center">
+                Please select the service.
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="services-direct-call-content text-center">
+    <p class="call-title">Do you currently have a heating, cooling, or water heater plan?</p>
+    <div class="call-cta-container">
+        <button class="btn-energy-cta btn-customer">Yes, I have a plan</button>
+        <button class="btn-energy-cta btn-non-customer">No, I do not have a plan</button>
+    </div>
+</div>

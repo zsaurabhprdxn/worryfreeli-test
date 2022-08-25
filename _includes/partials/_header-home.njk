@@ -1,0 +1,600 @@
+<header id="header-home" class="header {% if not hideCAHeaderFooter %}en-us-header{% endif %}{% if addLandingClass %} landing-page{% endif %}{% if landingHeader %} landing-container{% endif %}">
+  {# Alerts #}
+  {# {% if announcement %}
+  <div class="header-announcement">
+    <div class="container">
+      <div class="wrapper">
+        <p>{% include "markdown/_announcement.md" %}</p>
+      </div>
+    </div>
+  </div>
+  {% endif %} #}
+  {# Menu #}
+  <div class="header-menu">
+    <div class="logo-wrapper-mobile">
+      <button class="hamburger-menu" role="button">☰</button>
+      <a class="logo logo-icon" href="/en-us" title="{{ pageTitle }}">
+        {% include "svgs/Homeserve®_Low_House_Logo_PMS179C.svg" %}
+      </a>
+      {# {% if partnersLogo %}
+      <a class="partners-logo" {% if partnersUrl %} href="{{ partnersUrl }}" {% endif %}>
+        <img src="{{ basePath }}{{ partnersLogo }}" alt="Partner" />
+      </a>
+      {% endif %} #}
+    </div>
+    <div class="container">
+      <div class="wrapper menu-wrapper">
+        {# Locale #}
+        <div class="header-region header-popup">
+          <button class="header-region-button header-popup-button{% if landingHeader %} hollow-icon{% endif %}" type="text" aria-label="open-button"
+            for="trigger-locale-menu">
+            {% include "svgs/flag-us.svg" %}
+            <span>Change Region</span>
+          </button>
+          <ul class="header-region-list">
+            <li>
+              <a href="https://www.homeserve.com/uk" title="HomeServe UK">
+                <span class="flag">{% include "svgs/flag-uk.svg" %}</span><span>HomeServe UK</span></a>
+            </li>
+            <li>
+              <a href="http://www.homeserve.es" title="HomeServe Spain">
+                <span class="flag">{% include "svgs/flag-es.svg" %}</span><span>HomeServe Spain</span></a>
+            </li>
+            <li>
+              <a href="http://www.homeserve.fr" title="HomeServe France">
+                <span class="flag">{% include "svgs/flag-fr.svg" %}</span><span>HomeServe France</span></a>
+            </li>
+            <li>
+              <a href="{{ migrationData.canadaBaseUrl }}" title="HomeServe Canada" class="CA">
+                <span class="flag">{% include "svgs/flag-ca.svg" %}</span><span>HomeServe Canada</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-menu-items">
+          {# Real Estate Agents #}
+          {% if not landingHeader %}
+          <div class="menu-item menu-item-estate-agents">
+            <div class="component">
+              <a href="/realestate" class="link" title="opens in a new window" target="_blank"><span class="blog">Real Estate Agents</span></a>
+            </div>
+          </div>
+          {% endif %}
+          {# Blog #}
+          {% if not landingHeader %}
+          <div class="menu-item menu-item-blog">
+            <div class="component">
+              <a href="/en-us/blog" class="link" title="Blog">
+                <span class="blog">Blog</span></a>
+            </div>
+          </div>
+          {% endif %}
+          {# Mobile App #}
+          <div class="menu-item menu-item-app">
+            <div class="component">
+              <a href="/en-us/app" class="link" rel="noopener noreferrer" title="opens in a new window" target="_blank">
+                {% if landingHeader %}
+                {% include "svgs/new-mobile-icon.svg" %}
+                {% else %}
+                {% include "svgs/mobile-icon.svg" %}
+                {% endif %}
+                <span>The HomeServe App</span>
+              </a>
+            </div>
+          </div>
+          {# City Details #}
+          <div class="menu-item menu-item-city">
+            <div class="component">
+              <div class="city-details"></div>
+            </div>
+          </div>
+          {# Address Details #}
+          {% if not addLandingClass %}
+          <div class="menu-item menu-item-address">
+            <div class="component">
+              <div class="addr-details"></div>
+            </div>
+          </div>
+          {% endif %}
+          {# Zip Form #}
+          {% if addLandingClass %}
+          <div class="menu-item menu-item-zip new-popup">
+            <div class="component header-popup">
+              <div class="wrapper-in">
+                <button class="link edit header-popup-button" type="text" aria-label="open-button"
+                  for="trigger-zip-form">
+                  <span class="text">Enter ZIP</span>
+                </button>
+              </div>
+              <div class="wrapper-out">
+                <a class="link header-popup-button" type="text" aria-label="open-button" for="trigger-zip-form">
+                  {% if landingHeader %}
+                    {% include "svgs/location-icon-blue.svg" %}
+                  {% else %}
+                    {% include "svgs/pin-icon.svg" %}
+                  {% endif %}
+                  <span class="text addr-details">Enter ZIP</span>
+                </a>
+              </div>
+              <div class="header-zip-popup">
+                <button class="close-popup header-popup-button" type="text" aria-label="close-button"
+                  for="trigger-zip-form">
+                  {% include "svgs/close-icon.svg" %}
+                </button>
+                <div class="wrapper-in">
+                  <p class="heading">Your Location:</p>
+                  <p class="zip-code">
+                    <span class="city-details"></span>
+                    <span class="addr-details"></span>
+                  </p>
+                  <div class="form">
+                    <fieldset>
+                      <div class="form-row">
+                        <label for="zipcode">
+                          To change your ZIP Code to see plans available in another area.
+                        </label>
+                      </div>
+                      <div class="form-row zip-bar">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*" maxlength="5" name="zipcode"
+                          class="zip-input js-partner-zip zip-can zip-value" id="wrapin-zipcode"
+                          placeholder="Enter ZIP Code" data-rule-required="true"
+                          data-msg-required="Please input a 5 digit ZIP Code" data-rule-pattern="[0-9]{5}"
+                          data-msg-pattern="ZIP Code invalid please input a valid, 5 digit ZIP Code">
+                        <label class='zip-error top-error'>Please input a 5 digit ZIP Code</label>
+                        <button type="submit" class="button zip-button"
+                          data-partners-api="/sc/api/PartnerSelection/GetPartners" {% if headerSubmitColor
+                          %}style="background-color: {{ headerSubmitColor }}; border: 2px solid {{ headerSubmitColor }};"
+                          {% endif %}>
+                          <span class="text">Update</span>
+                          {% include "svgs/arrow-right-icon.svg" %}
+                        </button>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="wrapper-out">
+                  <p class="heading">ZIP Code</p>
+                  <div class="form">
+                    <fieldset>
+                      <div class="label">
+                        <label for="zipcode">Enter your ZIP Code to see plans available in your area</label>
+                      </div>
+                      <div class="field zip-bar">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*" maxlength="5" name="zipcode"
+                          class="zip-input js-partner-zip zip-can zip-value" id="wrapout-zipcode"
+                          placeholder="Enter ZIP Code" data-rule-required="true"
+                          data-msg-required="Please input a 5 digit ZIP Code" data-rule-pattern="[0-9]{5}"
+                          data-msg-pattern="ZIP Code invalid please input a valid, 5 digit ZIP Code">
+                        <label class='zip-error top-error'>Please input a 5 digit ZIP Code</label>
+                        <button type="submit" class="button button-blue zip-button"
+                          data-partners-api="/sc/api/PartnerSelection/GetPartners" {% if headerSubmitColor
+                          %}style="background-color: {{ headerSubmitColor }}; border: 2px solid {{ headerSubmitColor }};"
+                          {% endif %}>
+                          <span class="text">View Plans</span>
+                          {% include "svgs/arrow-right-icon.svg" %}
+                        </button>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% else %}
+          <div class="menu-item menu-item-zip">
+            <div class="component header-popup">
+              <div class="wrapper-in">
+                <button class="link edit header-popup-button" type="text" aria-label="open-button"
+                  for="trigger-zip-form">
+                  <span class="text">Enter ZIP</span>
+                </button>
+              </div>
+              <div class="wrapper-out">
+                <a class="link header-popup-button" type="text" aria-label="open-button" for="trigger-zip-form">
+                  {% include "svgs/pin-icon.svg" %}
+                  <span class="text">Enter ZIP</span>
+                  <span class="mobile-device-zip">{% include "svgs/location.svg" %}</span>
+                </a>
+              </div>
+              <div class="header-zip-popup">
+                <button class="close-popup header-popup-button" type="text" aria-label="close-button"
+                  for="trigger-zip-form">
+                  {% include "svgs/close-icon.svg" %}
+                </button>
+                <div class="wrapper-in">
+                  <p class="heading">Viewing plans for:</p>
+                  <p class="zip-code">
+                    <span class="city-details"></span>
+                    <span class="addr-details"></span>
+                  </p>
+                  <div class="form">
+                    <fieldset>
+                      <div class="form-row">
+                        <label for="zipcode">
+                          {% include "svgs/warning-icon.svg" %}
+                          Changing your ZIP Code may change the contents of your shopping cart
+                        </label>
+                      </div>
+                      <div class="form-row zip-bar">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*" maxlength="5" name="zipcode"
+                          class="zip-input js-partner-zip zip-can zip-value" id="wrapin-zipcode"
+                          placeholder="Enter Your Zip" data-rule-required="true"
+                          data-msg-required="Please input a 5 digit ZIP Code" data-rule-pattern="[0-9]{5}"
+                          data-msg-pattern="ZIP Code invalid please input a valid, 5 digit ZIP Code">
+                        <label class='zip-error top-error'>Please input a 5 digit ZIP Code</label>
+                        <button type="submit" class="button zip-button"
+                          data-partners-api="/sc/api/PartnerSelection/GetPartners" {% if headerSubmitColor
+                          %}style="background-color: {{ headerSubmitColor }}; border: 2px solid {{ headerSubmitColor }};"
+                          {% endif %}>
+                          <span class="wrap">
+                            <span class="text">Change ZIP</span>
+                            {% include "svgs/arrow-right-icon.svg" %}
+                          </span>
+                        </button>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="wrapper-out">
+                  <p class="heading">ZIP Code</p>
+                  <div class="form">
+                    <fieldset>
+                      <div class="label">
+                        <label for="zipcode">Enter your ZIP Code to see plans available in your area</label>
+                      </div>
+                      <div class="field zip-bar">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*" maxlength="5" name="zipcode"
+                          class="zip-input js-partner-zip zip-can zip-value" id="wrapout-zipcode"
+                          placeholder="Enter Your ZIP Code" data-rule-required="true"
+                          data-msg-required="Please input a 5 digit ZIP Code" data-rule-pattern="[0-9]{5}"
+                          data-msg-pattern="ZIP Code invalid please input a valid, 5 digit ZIP Code">
+                        <label class='zip-error top-error'>Please input a 5 digit ZIP Code</label>
+                        <button type="submit" class="button button-blue zip-button"
+                          data-partners-api="/sc/api/PartnerSelection/GetPartners" {% if headerSubmitColor
+                          %}style="background-color: {{ headerSubmitColor }}; border: 2px solid {{ headerSubmitColor }};"
+                          {% endif %}>
+                          <span class="text">View Plans</span>
+                          {% include "svgs/arrow-right-icon.svg" %}
+                        </button>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {# Phone #}
+          <div class="menu-item menu-item-phone">
+            <div class="component">
+              <a class="link" href="tel:{% if phoneNumber %}{{phoneNumber}}{% else %}1-855-336-2465{% endif %}">
+                {% if landingHeader %}
+                  {% include "svgs/call-icon.svg" %}
+                {% else %}
+                  {% include "svgs/phone-icon.svg" %}
+                {% endif %}
+                <span class="tel">{% if phoneNumber %}{{phoneNumber}}{% else %}1-855-336-2465{% endif %}</span>
+              </a>
+            </div>
+          </div>
+          <div class="menu-item mobile-device-phone">
+            <div class="component">
+              <a class="link header-phone-popup"
+                href="tel:{% if phoneNumber %}{{phoneNumber}}{% else %}1-855-336-2465{% endif %}">
+                {% include "svgs/Phone.svg" %}
+              </a>
+            </div>
+          </div>
+          {# Login #}
+          <div class="menu-item menu-item-login">
+            <div class="component">
+              <a class="link" href="/sc/login">
+              {% if landingHeader %}
+                {% include "svgs/landing-person.svg" %}
+              {% else %}
+                {% include "svgs/person-icon.svg" %}
+              {% endif %}
+              <span class="text">Sign In</span>
+              </a>
+            </div>
+          </div>
+          {# Cart #}
+          <div class="menu-item menu-item-cart">
+            <div class="component header-popup">
+              <a class="link header-popup-button hide-menu-item" type="text" aria-label="open-button"
+                for="trigger-cart-container">
+                {% include "svgs/basket-icon.svg" %}
+                <span class="text cart"><span>Cart</span>(<span class='count-prod'>0</span>)</span>
+              </a>
+              <button class="link header-popup-button mobile-device-cart" type="text" aria-label="open-button"
+                for="trigger-cart-container">
+                <span class="text cart">
+                  <span class='count-prod'>0</span>
+                  {% include "svgs/cart-icon.svg" %}
+                </span>
+              </button>
+              <div id="cartContainer">
+                <div class="cart-container has-0-items">
+                  <div class="cart-header">
+                    <div class="title">Cart total &lpar;<span class="count-prod">0</span> Plan&rpar;</div>
+                    <div class="plans">
+                      Total 0
+                      <span>Plans</span>
+                    </div>
+                    <div class="price">
+                      <span class="month">$0.00/mo</span>
+                      <span class="quarter">$0.00/qtr</span>
+                      <span class="annual">$0.00/yr</span>
+                    </div>
+                  </div>
+                  <div class="cart-scroll">
+                    <div class="cart-items">
+                      <div class="cart-no-items">
+                        <p class="no-items-text">Your shopping cart is empty!</p>
+                        <button class="no-items-close header-popup-button" type="text" aria-label="close-button"
+                          for="trigger-cart-container">close</button>
+                      </div>
+                      {# TODO - hidden #}
+                      <div class="cart-item first">
+                        <div class="item">
+                          <picture class="image">
+                            {% include "svgs/product-exteriorwaterservice-active-icon.svg" %}
+                          </picture>
+                          <div class="text">
+                            <div class="description">Exterior Water Service Line Coverage</div>
+                            <div class="price">
+                              <span class="month">$7.95/mo</span>
+                              <span class="quarter">$23.85/qtr</span>
+                              <span class="annual">$95.40/yr</span>
+                            </div>
+                            <button type="text" aria-label="remove-button" for="trigger-cart-item-action"
+                              class="remove">{% include "svgs/close-icon.svg" %}</button>
+                          </div>
+                        </div>
+                        <div class="sure">
+                          <div class="desc">Are you sure you want to remove this product?</div>
+                          <div class="actions">
+                            <button type="text" aria-label="remove-confirm-button" for="trigger-cart-item-remove"
+                              class="button">Remove</a>
+                              <button type="text" aria-label="remove-keep-button" for="trigger-cart-item-remove"
+                                class="button ghost">Keep</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {# TODO - hidden #}
+                    <div class="cart-actions">
+                      <div class="continue">or
+                        <a href="https://www.homeserve.com/sc/coverage">continue shopping &gt;</a>
+                      </div>
+                    </div>
+                  </div>
+                  {# TODO - hidden #}
+                  <div class="cart-footer">
+                    <div class="co-info">
+                      <p class="taxes">If applicable, local sales tax will be applied when your payment is processed.
+                      </p>
+                    </div>
+                    <div class="info">
+                      <div class="plans">Total 1
+                        <span>Plan</span>
+                      </div>
+                      <div class="price">
+                        <span class="month">$7.95/mo</span>
+                        <span class="quarter">$23.85/qtr</span>
+                        <span class="annual">$95.40/yr</span>
+                      </div>
+                    </div>
+                    <div class="cart-actions">
+                      <a href="/sc/intercept" class="button secondary">Proceed to Checkout</a>
+                      <div class="continue">or
+                        <a href="https://www.homeserve.com/sc/coverage">continue shopping &gt;</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# Mobile Menu #}
+          <div class="nav-mobile header-popup">
+            <div id="overlay">
+              <div id="mySidenav" class="sidenav">
+                <div class="slot">
+                  <div class="component account">
+                    <a class="link" href="/sc/login">
+                    {% if landingHeader %}
+                      {% include "svgs/landing-person.svg" %}
+                    {% else %}
+                      {% include "svgs/person-icon.svg" %}
+                    {% endif %}
+                      <span class="text">Sign In</span>
+                    </a>
+                  </div>
+                </div>
+                {% if landingHeader %}
+                {% if not hideSuperCategories %}
+                <div class="slot">
+                  <div class="item{% if not landingHeader %} covid-text{% endif %}">
+                    <button class="link mobile-hs-partner" title="Plans">
+                      <span class="text">Plans</span>
+                    </button>
+                    <ul class="nav-dropdown partner-dropdown">
+                      {% for subMenuItem in header.superCategory %}
+                      <li class="item">
+                        <a class="link nav-links" href="{{ subMenuItem.url }}" title="{{ subMenuItem.title }}">
+                          <span class="text">{{ subMenuItem.title }}</span>
+                        </a>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+                {% else %}
+                {% for menuItem in header.menuItems %}
+                <div class="slot">
+                  <div class="item">
+                    <a class="link nav-links" href="{{ menuItem.url }}" title="{{ menuItem.title }}">
+                      <span class="text">{{ menuItem.title }}</span>
+                    </a>
+                  </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endif %}
+                <div class="slot">
+                  <div class="item">
+                    <a class="link wbap" href="/en-us/repair-plans/why-buy-a-plan" title="Why Buy a Plan?">
+                      <span class="text">Why Buy a Plan?</span>
+                    </a>
+                  </div>
+                </div>
+                {% if not hideSuperCategories %}
+                <div class="slot">
+                  <div class="item{% if not landingHeader %} covid-text{% endif %}">
+                    <a href="/realestate" class="link" title="opens in a new window" target="_blank"><span class="blog">Real Estate Agents</span></a>
+                  </div>
+                </div>
+                <div class="slot">
+                  <div class="item{% if not landingHeader %} covid-text{% endif %}">
+                    <a href="/en-us/blog" class="link" title="Blog"><span class="blog">Blog</span></a>
+                  </div>
+                </div>
+                <div class="slot">
+                  <div class="item{% if not landingHeader %} covid-text{% endif %}">
+                    <a href="/en-us/app" class="link" rel="noopener noreferrer" title="opens in a new window" target="_blank"><span>The HomeServe App</span></a>
+                  </div>
+                </div>
+                <div class="slot">
+                  <div class="item{% if not landingHeader %} covid-text{% endif %}">
+                    <button class="link mobile-hs-partner red-text" title="Partner with Us">
+                      <span>Partner with Us</span>
+                    </button>
+                    {% if landingHeader %}
+                    <ul class="nav-dropdown partner-dropdown">
+                      {% for partnerMenuItem in header.partnerLinks %}
+                      <li class="item">
+                        <a class="link nav-links" href="{{ partnerMenuItem.url }}" title="{{ partnerMenuItem.title }}" target="{{ partnerMenuItem.target }}">
+                          <span class="text">{{ partnerMenuItem.name }}</span>
+                        </a>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {% else %}
+                    <ul class="partner-dropdown">
+                      <li>
+                        <a href="https://www.homeserveutility.com/" target="_blank" title="opens in a new window">
+                          <span>Energy Solutions</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://servicelinepartner.com/" target="_blank" title="opens in a new window">
+                          <span>Water Leak Solutions</span>
+                        </a>
+                      </li>
+                    </ul>
+                    {% endif %}
+                  </div>
+                </div>
+                {% endif %}
+                {# <div class="slot">
+                  <div class="component call-us">
+                    <a class="link" href="tel:{% if phoneNumber %}{{phoneNumber}}{% else %}1-855-336-2465{% endif %}">
+                      {% include "svgs/phone-icon.svg" %}
+                      <span class="tel">{% if phoneNumber %}{{phoneNumber}}{% else %}1-855-336-2465{% endif %}</span>
+                    </a>
+                  </div>
+                </div> #}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {# Navigation #}
+  <div class="header-navigation">
+    {% if hideAll == true %}
+    <div class="top-bar">
+      <div class="top-container">
+        <div class='slot'>
+          <a class="back-to-shop" href='https://www.homeserve.com/sc/coverage'>Back to Shopping</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="container">
+      <div class="wrapper {% if partnersLogo %}flex-wrap{% endif %}">
+        <div class="logo-wrapper-desktop">
+          <a class="logo" href="/en-us" title="{{ pageTitle }}">
+            {% include "svgs/HomeServe®_Brand_Logo_PMS179C.svg" %}
+          </a>
+          {% if partnersLogo %}
+          <a class="partners-logo" {% if partnersUrl %} href="{{ partnersUrl }}" {% endif %}>
+            <img src="{{ basePath }}{{ partnersLogo }}" alt="Partner" />
+          </a>
+          {% endif %}
+        </div>
+        <div class="nav-wrapper">
+          <ul class="list image-class-style">
+            {% if not landingHeader %}
+            {% if not hideSuperCategories %}
+            {% for menuItem in header.menuItems %}
+            <li class="item">
+              <a class="link nav-links" href="{{ menuItem.url }}" title="{{ menuItem.title }}">
+                <span class="text">{{ menuItem.title }}</span>
+              </a>
+            </li>
+            {% endfor %}
+            <li class="static-divider"></li>
+            {% endif %}
+            {% endif %}
+            {% if landingHeader %}
+            <li class="item">
+              <button class="link nav-links" title="Plans">
+                <span class="text">Plans</span>
+                {% if landingHeader %}{% include "svgs/down-arrow.svg" %}{% endif %}
+              </button>
+              <ul class="nav-dropdown">
+                {% for subMenuItem in header.superCategory %}
+                <li class="item">
+                  <a class="link nav-links" href="{{ subMenuItem.url }}" title="{{ subMenuItem.title }}">
+                    <span class="text">{{ subMenuItem.title }}</span>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% endif %}
+            <li class="item">
+              {% if pageName == 'why-buy-a-plan' %}
+              <a class="link active wbap" href="/en-us/repair-plans/why-buy-a-plan" title="Why Buy a Plan?">
+                <span class="text">Why Buy a Plan?</span>
+              </a>
+              {% else %}
+              <a class="link wbap" href="/en-us/repair-plans/why-buy-a-plan" title="Why Buy a Plan?">
+                <span class="text">Why Buy a Plan?</span>
+              </a>
+              {% endif %}
+            </li>
+            {% if landingHeader %}
+            <li class="item">
+              <a href="/realestate" class="link" title="opens in a new window" target="_blank"><span class="blog">Real Estate</span></a>
+            </li>
+            <li class="item">
+              <a href="/en-us/blog" class="link" title="Blog"><span class="blog">Blog</span></a>
+            </li>
+            {% endif %}
+            {% if not hideSuperCategories %}
+            <li class="item{% if not landingHeader %} covid-text{% endif %}">
+              <button class="link nav-links hs-partner red-text" title="Partner with Us">
+                <span class="text">Partner with Us</span>
+                {% if landingHeader %}{% include "svgs/down-arrow.svg" %}{% endif %}
+              </button>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,60 @@
+<div class="product-page-sticky-bar {% if stickyFooter == false %}hide-block{% else %}{% endif %}">
+  <div class="wrapper">
+    <div class="desktop-text">
+      {% if stickyDisplayText %}
+        <p>{{stickyDisplayText}}
+          Call
+          <a href="tel:{{phoneNumber}}" title="{{phoneNumber}}">{{phoneNumber}}</a>
+        </p>
+      {% else %}
+        <p>View Plans in your area</p>
+      {% endif %}
+    </div>
+    <div class="mobile-text">
+      <div class="form-row zip-bar">
+        <label class="zip-code-label">Enter your zip code</label>
+        <input type="text" inputmode="decimal" pattern="[0-9]*" maxlength="5" name="zipcode" class="zip-input js-partner-zip zip-can zip-value" id="wrapin-zipcode" placeholder="Enter Your Zip" data-rule-required="true" data-msg-required="Please input a 5 digit ZIP Code" data-rule-pattern="[0-9]{5}" data-msg-pattern="ZIP Code invalid please input a valid, 5 digit ZIP Code">
+        <label class='zip-error top-error worryfree-zip-error'>Please input a 5 digit ZIP Code</label>
+        <button type="submit" class="button zip-button" data-partners-api="/sc/api/PartnerSelection/GetPartners" {% if headerSubmitColor %} style="background-color: {{ headerSubmitColor }}; border: 2px solid {{ headerSubmitColor }};" {% endif %}>
+          <span class="wrap">
+            <span class="text">Change ZIP</span>
+            {% include "svgs/arrow-right-icon.svg" %}
+          </span>
+        </button>
+      </div>
+      <div class="sticky-services">
+        <div class="products-page-sticky-input" style="margin-bottom:10px;">
+          <button>
+            <a href="/en-us/energy/services/results" title="opens in a new window" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" class="chev" style="fill: #ffffff;">
+                <path d="M7.753.902L5.156 3.491 13.672 12l-8.516 8.508 2.597 2.589L18.843 12z"></path>
+              </svg>
+            </a>
+          </button>
+          <div class="call-button-section">
+            <button>
+              {% if phoneNumber %}
+                <a href="tel:{{phoneNumber}}" class="call-ref">
+                  <span class="fa fa-phone-alt"></span>
+                </a>
+              {% else %}
+                <a href="tel:1-866-586-0326" class="call-ref">
+                  <span class="fa fa-phone-alt"></span>
+                </a>
+              {% endif %}
+            </button>
+            {% if phoneNumber %}
+              <a href="tel:{{phoneNumber}}" class="call-ref">
+                <span class="call-text">Call</span>
+              </a>
+            {% else %}
+              <a href="tel:1-866-586-0326" class="call-ref">
+                <span class="call-text">Call</span>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,911 @@
+@use "../../variables" as var;
+
+// General Styling
+
+.menu-item.menu-item-cart,
+.LPMcontainer  {
+    display: none !important;
+}
+
+main {
+    margin: 0 !important;
+}
+
+.energy-services-container {
+    .wrapper {
+        justify-content: center;
+
+        @media only screen and (max-width: var.$sm) {
+            width: 91%;
+        }
+    }
+}
+
+// Dark mode styling
+
+body.dark {
+    background-color: #000000;
+}
+
+.energy-services-container.dark-mode,
+.energy-services-footer.dark-mode {
+    background-color: #000000;
+    color: invert($color: #000000);
+}
+
+.energy-services-container.dark-mode {
+    .services-form-content {
+
+        @media only screen and (min-width: var.$lg) {
+            padding-bottom: 17.4%;
+        }
+
+        .form-group {
+            .form-control {
+                background-color: #000000;
+            }
+
+            .form-label {
+                color: #FFFFFF;
+            }
+
+            .consent-text {
+                color: #FFFFFF;
+            }
+
+            input:-internal-autofill-selected {
+                background-color: #000000 !important;
+            }
+        }
+
+    }
+}
+
+.energy-services-footer.dark-mode {
+    padding-bottom: 7%;
+    margin-top: -1%;
+
+    @media only screen and (min-width: var.$md) {
+        margin-top: -1%;
+    }
+    .wrapper {
+        .footer-links {
+            margin-top: 7%;
+
+            @media only screen and (min-width: var.$md) {
+                margin: 2% 0;
+            }
+
+            .footer-policy-links {
+                li {
+                    border-right: 1px solid #fff;
+
+                    a {
+                        color: #fff !important;
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                    .accessibility-text {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+// Search Content
+.services-search-content {
+    width: 100%;
+
+    @media only screen and (min-width: var.$md) {
+        width: 70%;
+    }
+
+    @media only screen and (min-width: var.$xl) {
+        width: 50%;
+    }
+    h1 {
+        margin-top: 7%;
+        font-size: 22px;
+        font-weight: 500;
+        font-family: MuseoSans-500;
+        color: #E62419;
+
+        @media only screen and (min-width: var.$md) {
+            font-size: 2rem;
+        }
+    }
+    .zip-input-holder {
+        fieldset {
+            .zipcode-label {
+                margin: 1% 0 5% 0;
+                color: #3A3A3A;
+                font-size: 22px;
+                font-family: MuseoSans-500;
+
+                @media only screen and (min-width: var.$md) {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .form-field {
+                position: relative;
+                .search-icon {
+                    width: 9%;
+                    margin-top: 3%;
+                    position: absolute;
+                    left: 4%;
+
+                    @media only screen and (min-width: var.$md) {
+                        width: 6%;
+                        margin-top: 4.5%;                    
+                        left: 15%;
+                    }
+
+                    @media only screen and (min-width: var.$lg) {
+                        margin-top: 2.5%;
+                        left: 18%;
+                    }
+
+                    @media only screen and (min-width: var.$xl) {
+                        margin-top: 3.5%;
+                    }
+
+                    @media only screen and (min-width: var.$xxl) {
+                        margin-top: 2.5%;                    
+                        left: 22%;
+                    }
+
+                }
+
+                .tick-icon {
+                    width: 5%;
+                    margin-top: 6%;
+                    display: none;
+                    position: absolute;
+                    right: 28%;
+                    top: 0;
+
+                    @media only screen and (min-width: var.$md) {
+                        width: 4%;
+                        margin-top: 6%;
+                        right: 33%;
+                    }
+
+                    @media only screen and (min-width: var.$lg) {
+                        width: 3%;
+                        margin-top: 5%;
+                    }
+
+                    @media only screen and (min-width: var.$xl) {
+                        margin-top: 6%;
+                        right: 36%;
+                    }
+
+                    @media only screen and (min-width: var.$xxl) {
+                        margin-top: 4.5%;
+                        right: 39%;
+                    }
+                }
+
+                .zip-input {
+                    width: 100%;
+                    height: 54px;
+                    padding-left: 50px;
+                    border: .75px solid #bdbdbd;
+                    border-radius: 50px;
+                    color: #757575;
+                    font-family: MuseoSans-300;
+                    font-size: 12px;
+                    outline: 0;
+                    vertical-align: middle;
+                    box-shadow: none;
+                    transition: all .15s ease-in-out;
+
+                    @media only screen and (min-width: var.$md) {
+                        width: 80%;
+                        height: 74px;
+                        padding-left: 70px;
+                        font-size: 16px;
+                    }
+
+                    @media only screen and (min-width: var.$lg) {
+                        width: 70%;
+                    }
+
+                    @media only screen and (min-width: var.$xl) {
+                        padding-left: 64px;
+                    }
+
+                    @media only screen and (min-width: var.$xxl) {
+                        width: 60%;
+                        padding-left: 70px;
+                    }
+                }
+
+                .zip-value.error {
+                    border-color: #db022d;
+                    background-color: #fbe0e6;
+                }
+
+                .zip-error {
+                    margin: 2% 0;
+                    display: none;
+                    color: #EE1A20;
+                    font-size: 12px;
+                    font-family: MuseoSans-500;
+
+                    @media only screen and (min-width: var.$md) {
+                        font-size: 14px;
+                    }
+                }
+
+                .go-btn {
+                    margin-top: 2%;
+                    position: absolute;
+                    right: 7px;
+                    top: 0;
+                    background-color:#EE1A20;
+                    border: 2px solid #EE1A20;
+                    border-radius: 50px;
+                    padding: 5px 23px;
+                    font-size: 16px;
+                    font-family: MuseoSans-300;
+                    font-weight: 600;
+
+                    @media only screen and (min-width: var.$md) {
+                        margin-top: 1.7%;
+                        padding: 12px 30px;
+                        right: 60px;
+                        font-size: 18px;
+                    }
+
+                    @media only screen and (min-width: var.$lg) {
+                        margin-top: 1.2%;
+                        right: 107px;                     
+                    }
+
+                    @media only screen and (min-width: var.$xl) {
+                        margin-top: 1.5%;      
+                        right: 17%;                     
+                    }
+
+                    @media only screen and (min-width: var.$xxl) {
+                        margin-top: 1.2%;                     
+                        right: 22%;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// Search error content
+.search-error-content {
+    display: none;
+    figure {
+        width: 20%;
+        margin: 5% auto;
+
+        @media only screen and (min-width: var.$md) {
+            width: 25%;
+            margin: 15% auto 10%;
+        }
+    }
+
+    p {
+        font-size: 16px;
+        font-family: MuseoSans-500;
+
+        @media only screen and (min-width: var.$md) {
+            font-size: 18px;
+        }
+    }
+}
+
+// Results page
+.services-results-content {
+
+    @media only screen and (min-width: var.$md) {
+        width: 55%;
+    }
+
+    @media only screen and (min-width: var.$lg) {
+        width: 50%;
+    }
+
+    @media only screen and (min-width: var.$xl) {
+        width: 40%;
+    }
+
+    @media only screen and (min-width: var.$xxl) {
+        width: 35%;
+    }
+
+    .services-results-form {
+
+        legend {
+            margin: 10% auto 7%;
+            color: #E62419;
+            font-size: 22px;
+            font-weight: 500;
+            font-family: MuseoSans-500;
+            text-align: center;
+
+            @media only screen and (min-width: var.$md) {
+                font-size: 24px;
+            }
+        }
+
+        .form-input-group {
+            margin: 2.2% 0;
+            padding: 20px 0 30px;
+            position: relative;
+
+            @media only screen and (min-width: var.$md) {
+                margin: 3% 0;
+                padding: 22px 15px 30px;
+                background-color: #F3F5F6;
+            }
+
+            
+            @media only screen and (max-width: var.$md) {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    height: 100%;
+                    width: 100vw;
+                    transform: translateX(-50%);
+                    background-color: #F3F5F6;
+                    z-index: -99;               
+                }
+            }
+
+            label {
+                margin-left: 8%;
+                position: absolute;
+                top: 25%;
+                color: #757575;
+                font-size: 16px;
+                font-family: MuseoSans-500;
+
+                @media only screen and (min-width: var.$md) {
+                    font-size: 18px;
+                }
+
+                @media only screen and (min-width: var.$lg) {
+                    margin-left: 5%;
+                }
+
+            }
+
+            input[type="radio"] {
+                
+                &::-ms-expand {
+                    display: none;
+                }
+                
+                width: 15px;
+                height: 15px;
+                border: 1px solid #007BC7;
+                border-radius: 2px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                background-color: #fff;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .radio-tick {
+                width: 5%;
+                position: absolute;
+                left: 3px;
+                top: 18px;
+                right: 0;
+
+                @media only screen and (min-width: var.$md) {
+                    width: 6%;
+                    left: 17px;
+                    top: 17px;    
+                }
+
+                @media only screen and (min-width: var.$lg) {
+                    width: 5%;  
+                }
+            }
+
+            .option-1,
+            .option-2,
+            .option-3 {
+                display: none;
+            }
+        }
+
+        .form-button-group {
+            input[type="submit"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #007BC7;
+                border-radius: 3px;
+                background-color: #007BC7;
+                color: #fff !important;
+                font-size: 14px;
+                font-family: MuseoSans-500;
+
+                &:hover {
+                    -webkit-animation-name: blinkIcons;
+                    animation-name: blinkIcons;
+                    -webkit-animation-duration: .2s;
+                    animation-duration: .2s;
+                    -webkit-animation-timing-function: ease-in-out;
+                    animation-timing-function: ease-in-out;
+                }
+
+                @media only screen and (min-width: var.$md) {
+                    font-size: 16px;
+                }
+            }
+        }
+
+    }
+}
+
+// Results --> direct call content
+.services-direct-call-content {
+    margin: 2% 0;
+    display: none;
+
+    @media only screen and (min-width: var.$md) {
+        margin: 0;
+    }
+
+    .call-title {
+        margin: 10% auto 3%;
+        color: #E62419;
+        font-size: 22px;
+        font-family: MuseoSans-500;
+
+        @media only screen and (min-width: var.$md) {
+            font-size: 24px;
+        }
+
+        @media only screen and (min-width: var.$xl) {
+            margin: 7% auto 3%;
+        }
+    }
+
+    .call-cta-container {
+        .btn-energy-cta {
+            margin: 3% auto;
+            width: 100%;
+            padding: 15px 0;
+            border: 1px solid #007BC7;
+            border-radius: 3px;
+            background-color: #007BC7;
+            color: #fff;
+            font-size: 18px;
+            font-family: MuseoSans-500;
+            transition: background-color .3s ease-in-out;
+
+            &:hover {
+                background-color: #025C93;
+            }
+
+            @media only screen and (min-width: var.$md) {
+                margin: 2% auto;
+                width: 70%;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@-webkit-keyframes blinkIcons {
+
+    0%,
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    50% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes blinkIcons {
+  
+    0%,
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    50% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+
+// Form Page
+.services-form-content {
+
+    @media only screen and (min-width: var.$lg) {
+        width: 77%;
+    }
+
+    @media only screen and (min-width: var.$xl) {
+        width: 66%;
+    }
+
+    @media only screen and (min-width: var.$xxl) {
+        width: 61%;
+    }
+
+    .form-title-day,
+    .form-title-night {
+        display: none;
+        p {
+            font-size: 18px;
+            font-family: MuseoSans-300;
+
+            @media only screen and (min-width: var.$md) {
+                font-size: 22px;
+            }
+        }
+    }
+
+    .form-title-day {
+        p {
+            color: #3A3A3A;
+        }
+    }
+
+    .form-subtitle-day {
+        display: none;
+        span {
+            font-size: 12px;
+            font-family: MuseoSans-300;
+            color: #757575;
+
+            @media only screen and (min-width: var.$md) {
+                font-size: 14px;
+            }
+
+            a {
+                color: #007BC7;
+            }
+        }
+        
+    }
+
+    .form-subtitle-night {
+        display: none;
+        span {
+            font-size: 16px;
+            font-family: MuseoSans-300;
+
+            @media only screen and (min-width: var.$md) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .form-title-day.active,
+    .form-title-night.active,
+    .form-subtitle-day.active,
+    .form-subtitle-night.active {
+         display: block; 
+    }
+
+    .form-control:disabled, .form-control[readonly] {
+        background-color: inherit;
+    }
+
+    .form-group {
+        margin: 5% 0;
+
+        .consent-text {
+            width: 98%;
+            margin: 12% 0;
+            color: #757575;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: MuseoSans-300;
+
+            @media only screen and (min-width: var.$md) {
+                width: 100%;
+                margin: 8% 0;
+                font-size: 15px;
+            }
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-family: MuseoSans-500;
+            font-weight: 600;
+            color: #3A3A3A;
+
+            @media only screen and (min-width: var.$md) {
+                font-size: 15px;
+            }
+        }
+
+        .form-control {
+            padding: 0.375rem 0.3rem;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid #757575;
+            color: #979797;
+            mix-blend-mode: normal;
+            font-size: 13px;
+            font-family: MuseoSans-300;
+            font-weight: 400;
+
+            @media only screen and (min-width: var.$md) {
+                font-size: 15px;
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        textarea.form-control {
+            border: 1px solid #D1D1D1;
+            background-color: #F9F9F9;
+            resize: none;
+        }
+
+        input:-webkit-autofill {
+            background-color: #fff !important;
+        }
+    }
+
+    .form-button-group {
+        .btn-submit {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #007BC7 ;
+            border-radius: 3px;
+            background-color: #007BC7;
+            color: #fff;
+            font-size: 14px;
+            font-family: MuseoSans-300;
+            font-weight: 600;
+
+            @media only screen and (min-width: var.$md) {
+                font-size: 16px;
+            }
+
+            &:hover {
+                -webkit-animation-name: blinkIcons;
+                animation-name: blinkIcons;
+                -webkit-animation-duration: .2s;
+                animation-duration: .2s;
+                -webkit-animation-timing-function: ease-in-out;
+                animation-timing-function: ease-in-out;
+            }
+        }
+    }
+
+}
+
+// Submitted Page
+
+.services-submitted-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    figure {
+        margin-top: 6%;
+
+        @media only screen and (min-width: var.$md) {
+            margin-top: 20%;
+        }
+    }
+
+    .submitted-msg-day {
+        display: none;
+        p {
+            color: #E62419;
+            font-size: 22px;
+            font-family: MuseoSans-500;
+
+            @media only screen and (min-width: var.$md) {
+                font-size: 24px;
+            }
+        }
+    }
+
+    .submitted-msg-night {
+        width: 90%;
+        padding-bottom: 42%;
+        display: none;
+
+        @media only screen and (min-width: var.$md) {
+            padding-bottom: 60.6%;
+        }
+
+        @media only screen and (min-width: var.$lg) {
+            padding-bottom: 83.6%;
+        }
+
+        @media only screen and (min-width: var.$xl) {
+            padding-bottom: 23.6%;
+        }
+
+        .msg-title {
+            p {
+                font-size: 22px;
+                font-family: MuseoSans-300;
+                
+                @media only screen and (min-width: var.$md) {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .msg-subtitle {
+            margin: 5% 0;
+            span {
+                font-size: 16px;
+                font-family: MuseoSans-300;
+
+                @media only screen and (min-width: var.$md) {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .btn-submitted-group {
+        margin: 5% 0;
+        display: none;
+        .btn-call {
+            width: 100%;
+            padding: 15px 30px;
+            border: 1px solid #007BC7;
+            border-radius: 3px;
+            background-color: #007BC7;
+            color: #fff;
+            font-size: 18px;
+            font-family: MuseoSans-300;
+
+            @media only screen and (min-width: var.$md) {
+                font-size: 20px;
+            }
+
+            &:hover {
+                -webkit-animation-name: blinkIcons;
+                animation-name: blinkIcons;
+                -webkit-animation-duration: .2s;
+                animation-duration: .2s;
+                -webkit-animation-timing-function: ease-in-out;
+                animation-timing-function: ease-in-out;
+            }
+        }
+    }
+
+    .submitted-msg-day.active,
+    .submitted-msg-night.active,
+    .btn-submitted-group.active {
+        display: block;
+    }
+
+    .energy-submitted-settings {
+        display: none;
+    }
+}
+
+// Footer Styling
+.energy-services-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-top: 3%;
+    padding-bottom: 5%;
+    background-color: #fff;
+
+    @media only screen and (min-width: var.$md) {
+        margin-top: 1%;
+        padding-bottom: 2%;
+    }
+
+    @media only screen and (max-height: var.$sm) {
+       margin-top: 50%;
+       position: unset;
+       bottom: auto;
+    }
+
+    @media only screen and (min-width: var.$lg) and (max-height: 704px ) {
+        margin-top: 30%;
+        position: unset;
+        bottom: auto;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .footer-links {
+            width: 100%;
+            margin: 2% 0;
+
+            a { 
+                font-family: MuseoSans-300;
+                font-size: 12px;
+                
+
+                @media only screen and (min-width: var.$md) {
+                    font-size: 14px;
+                }
+            }
+
+            .footer-call { 
+                
+                @media only screen and (min-width: var.$md) {
+                    margin: 2% 0;
+                }
+            }
+
+            .footer-policy-links {
+                display: flex;
+                justify-content: center;
+
+                li {
+                    margin: 1% 0;
+                    padding: 0 7px;
+                    border-right: 1px solid #000000;
+
+                    @media only screen and (min-width: var.$md) {
+                        padding: 0 10px;
+                    }
+
+                    &:last-child {
+                        border-right: none;
+                    }
+
+                    a {
+                        transition: all .5s ease-in-out;
+
+                        &:hover {
+                            color: #000000;
+                            text-decoration: underline;
+                        }
+
+                        &:visited {
+                            color: #000000;
+                        }
+                    }
+                }
+            }
+        }
+
+        .powered-by {
+            width: 43%;
+            margin-left: 5%;
+
+            @media only screen and (min-width: var.$md) {
+                width: 20%;
+                margin-left: 2%;
+            }
+
+            @media only screen and (min-width: var.$xl) {
+                width: 15%;
+            }
+        }
+    }
+}

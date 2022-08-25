@@ -1,0 +1,29 @@
+<div class="hero-data{% if lpStyles %} hero-mike{% endif %}">
+	<div class="wrapper">
+		<div class="hero-header {{ bannerContentPosition }}">
+			<div class="zip-holder">
+				{% if repairPlans %}
+					<h2 class="zip-header">{{ repairPlans }}</h2>
+				{% endif %}
+				{% if subQuote %}
+					<p class='subquote'>{{ subQuote | safe }}</p>
+				{% endif %}
+				<form class="zip-input-holder" method="POST" action="https://www.homeserve.com/sc/coverage">
+					<input class="zip-value" type="text" maxlength="5" placeholder="Enter Your ZIP Code"/>
+					<label class='zip-error top-error'>Please input a 5 digit ZIP Code</label>
+					{% if buttonData %}
+						<button class='go-btn'{% if buttonColor %} style="background-color: #{{ buttonColor }};"{% endif %}>{{ buttonData }}</button>
+					{% endif %}
+				</form>
+				<div class="existing-zip">
+					<div class="addr-holder">
+						<span class="home-city"></span>
+						<span class="home-state"></span>
+						<span class="home-zip"></span>
+					</div>
+					<button class='view-plans'>View Plans</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+---
+layout: energy/services/index.njk  
+---
+
+<div class="services-search-content">
+    <h1 class="text-center">Get Started</h1>
+    <div class="zip-input-holder">
+        <fieldset class="text-center">
+          <label for="zipcode" class="zipcode-label">Enter your property ZIP Code</label>
+          <div class="form-field">
+            <img src="/en-us/assets/images/search-large.svg" class="search-icon" alt="Search Icon"/>
+            <input type="text" inputmode="decimal" pattern="[0-9]*" name="zipcode" class="zip-input zip-value energy-zip" maxlength="5" placeholder="{{ zipFieldCopy }}" id="energy-zip-input"/>
+            <img src="/en-us/assets/images/tick-shape.svg" class="tick-icon" alt="Tick Icon"/>            
+            <label class='zip-error top-error'{% if zipErrorColor %}style="color: {{ zipErrorColor }};"{% endif %}>Please input a 5 digit ZIP Code</label>
+            <button class='button go-btn energy-zip-btn'{% if bannerCTAColor %}style="background-color: {{ bannerCTAColor }}; border: 2px solid {{ bannerCTAColor }};"{% endif %}>
+            <span>GO</span>
+            </button>
+          </div>
+        </fieldset>
+      </div>
+</div>
+
+<div class="search-error-content">
+    <figure>
+        <img src='/en-us/assets/images/HS-icon.svg' title='HS icon'>
+    </figure>
+    <p class="text-center">Sorry, we don't provide service in this area yet.</p>
+</div>
+
