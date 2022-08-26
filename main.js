@@ -17,15 +17,19 @@ window.$ = $;
   showDots: Object - Shows slider dots/indicator
   mobileSlide: Show slides based on particular breakpoints
 */
-
-const initializeSlickSlider = (sliderHolder, showDots, showMobileArrows, slideToShow, mobileSlide, slideWidth) => {
+const initializeSlickSlider = (
+  sliderHolder,
+  showDots,
+  showMobileArrows,
+  slideToShow,
+  mobileSlide
+) => {
   sliderHolder.slick({
     dots: showDots,
     infinite: false,
     speed: 300,
     slidesToShow: slideToShow,
     slidesToScroll: 1,
-    variableWidth: slideWidth,
     responsive: [
       {
         breakpoint: 769,
@@ -38,7 +42,6 @@ const initializeSlickSlider = (sliderHolder, showDots, showMobileArrows, slideTo
     ],
   });
 };
-
 
 /*
   onHamburgerMenuClick : Function triggered on Hamburger Menu item click
@@ -260,12 +263,20 @@ $(window).on("load", (e) => {
 
   $('.header-announcement, .close-menu').on('click', closeHamburgerMenu);
   
+  // Add this widget
+  let slickSlider = $("#slick_slider");
+
+  setTimeout(() => {
+    slickSlider.attr("src", "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    );
+  }, 2000);
+
   setTimeout(() => {
     /*
-        Initializing Slick
+      Initializing Slick
     */
-    initializeSlickSlider($('.hvac-customer-review ul'), true, false, 2, 1, false);
-    initializeSlickSlider($('.why-choose-homeserve ul'), true, false, 2, 1, true);
+    initializeSlickSlider($('.why-choose-homeserve ul'), true, false, 2, 1);
+    initializeSlickSlider($(".hvac-customer-review ul"), true, false, 2, 1);
   }, 2500);
 
   getGeoDetails();
