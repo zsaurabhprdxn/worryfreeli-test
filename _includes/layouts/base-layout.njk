@@ -40,44 +40,50 @@ pageTitle: "PSEG WorryFree Long Island"
       <meta name="robots" content="noindex, nofollow">
     {% endif %}
     
-    <link href="/en-us/css/compiled-sass/bootstrap.css">
-    <link href="/en-us/css/compiled-sass/index.css" as="style">
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/bootstrap.css">
+    <link rel="preload" href="/en-us/css/compiled-sass/index.css" as="style">
     {% if headerStyle == 'landing' %}
-    <link href="/en-us/css/compiled-sass/header/header-home.css">
-     {% elseif headerStyle == 'worryfree' %}
-    <link href="/en-us/css/compiled-sass/header/worryfree-header-home.css">
+    <link rel="preload" href="/en-us/css/compiled-sass/header/header-home.css" as="style">
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/header/header-home.css">
+    {% elseif headerStyle == 'worryfree' %}
+    <link rel="preload" href="/en-us/css/compiled-sass/header/worryfree-header-home.css" as="style">
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/header/worryfree-header-home.css">
     {% endif %}
     {% if not pageStyles %}
-    <link href="/en-us/css/compiled-sass/common.css" as="style">
+    <link rel="preload" href="/en-us/css/compiled-sass/common.css" as="style">
     {% endif %}
     {% if energyPageStyle == 'energy-services' %}
-    <link href="/en-us/css/compiled-sass/energy/services/index.css">
+    <link rel="preload" href="/en-us/css/compiled-sass/energy/services/index.css" as="style">
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/energy/services/index.css">
+    {% endif %}
+    {% if seoProductStyle %}
+    <link rel="preload" href="/en-us/css/compiled-sass/seo-page/{{ seoProductStyle }}.css" as="style">
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/seo-page/{{ seoProductStyle }}.css">
     {% endif %}
     {% if footerStyle == 'worryfree' %}
-    <link href="/en-us/css/compiled-sass/footer/worryfree-footer.css">
+    <link rel="preload" href="/en-us/css/compiled-sass/footer/worryfree-footer.css" as="style">
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/footer/worryfree-footer.css">
     {% endif %}
-    <link href="/en-us/assets/vendor.js" as="script">
-    <link href="/en-us/assets/main.js" as="script">
-    <link href="/en-us/assets/vendor/font-awesome/css/all.min.css" as="style">
-    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" as="style"/>
-    <link  href="/en-us/css/compiled-sass/index.css">
+    <link rel="preload" href="/en-us/assets/vendor.js" as="script">
+    <link rel="preload" href="/en-us/assets/main.js" as="script">
+    <link rel="preload" href="/en-us/assets/vendor/font-awesome/css/all.min.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" as="style"/>
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/index.css">
     {% if not pageStyles %}
-    <link  href="/en-us/css/compiled-sass/common.css">
+    <link rel="stylesheet" href="/en-us/css/compiled-sass/common.css">
     {% endif %}
 
-    <link href="/en-us/assets/vendor/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
+    <link rel="preload" href="/en-us/assets/vendor/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
     crossorigin="anonymous">
-    <link href="/en-us/assets/vendor/font-awesome/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="/en-us/assets/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
     <link rel="shortcut icon" href="/en-us/assets/images/favicon.png" type="image/x-icon">
   </head>
 
   <body>
     <!-- Shortcode drilling for Sprite Plugin -->
-    {# <div class="svg-sprite-container">{% svgsprite %}</div> #}
-
-    {% set announcement = announcement %}
+    <div class="svg-sprite-container">{% svgsprite %}</div>
 
       <div class="container-fluid" id="myContent">
         {% if headerStyle == 'worryfree' %}
@@ -119,8 +125,8 @@ pageTitle: "PSEG WorryFree Long Island"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
-      <script src="/en-us/assets/" type="text/javascript" defer></script>
-      <script src="/en-us/assets/main.js" type="text/javascript" defer></script>
+      <script src="/en-us/assets/vendor.js" defer></script>
+      <script src="/en-us/assets/main.js" defer></script>
      
       <script id="slick_slider" type="text/javascript" defer></script>
 

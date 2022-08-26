@@ -1,4 +1,5 @@
 const pluginSvgSprite = require("eleventy-plugin-svg-sprite");
+const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAttrs = require("markdown-it-attrs");
 const markdownItContainer = require("markdown-it-container");
@@ -24,6 +25,7 @@ module.exports = function (config) {
   config.addPassthroughCopy("en-us/assets");
   config.addPassthroughCopy("_redirects");
   config.addPassthroughCopy("404.html");
+  config.addPlugin(pluginNavigation);
 
   // Configure sprite plugin start
   config.addPlugin(pluginSvgSprite, {
@@ -159,7 +161,22 @@ module.exports = function (config) {
 
   let markdownLib = markdownIt(options)
     .use(markdownItAttrs)
-    .use(markdownItContainer, "wrapper");
+    .use(markdownItContainer, "wrapper")
+    .use(markdownItContainer, "feature-slider")
+    .use(markdownItContainer, "seo-customer-heading")
+    .use(markdownItContainer, "hvac-services")
+    .use(markdownItContainer, "hvac-features")
+    .use(markdownItContainer, "hvac-customer-review")
+    .use(markdownItContainer, "hvac-faqs")
+    .use(markdownItContainer, "faq-question")
+    .use(markdownItContainer, "faq-answer")
+    .use(markdownItContainer, "why-choose-homeserve")
+    .use(markdownItContainer, "why-choose-homeserve-content")
+    .use(markdownItContainer, "worryfree-page-image")
+    .use(markdownItContainer, "worryfree-banner")
+    .use(markdownItContainer, "hvac-services-image")
+    .use(markdownItContainer, "hvac-services-content")
+    .use(markdownItContainer, "corona-update")
 
   config.setLibrary("md", markdownLib);
 };
