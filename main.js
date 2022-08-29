@@ -22,7 +22,8 @@ const initializeSlickSlider = (
   showDots,
   showMobileArrows,
   slideToShow,
-  mobileSlide
+  mobileSlide,
+  variableWidth
 ) => {
   sliderHolder.slick({
     dots: showDots,
@@ -30,6 +31,7 @@ const initializeSlickSlider = (
     speed: 300,
     slidesToShow: slideToShow,
     slidesToScroll: 1,
+    variableWidth: variableWidth,
     responsive: [
       {
         breakpoint: 769,
@@ -275,8 +277,8 @@ $(window).on("load", (e) => {
     /*
       Initializing Slick
     */
-    initializeSlickSlider($('.why-choose-homeserve ul'), true, false, 2, 1);
-    initializeSlickSlider($(".hvac-customer-review ul"), true, false, 2, 1);
+    initializeSlickSlider($('.why-choose-homeserve ul'), true, false, 2, 1, true);
+    initializeSlickSlider($(".hvac-customer-review ul"), true, false, 2, 1, false);
   }, 2500);
 
   getGeoDetails();
